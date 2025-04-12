@@ -1,0 +1,61 @@
+我打算使用 Poetry 和 Cookiecutter创建一个py项目，我的项目是开发一个运行在window10+的python自动化应用，包含自动点击，模拟点击，定时运行，网络api请求，win应用界面等基础功能以及后续可能拓展的其他功能
+在网上搜索发现，Cookiecutter-Poetry 是一个现代化的 Cookiecutter 模板，专为使用 Poetry 进行依赖管理的 Python 项目而设计。可能要使用Cookiecutter-Poetry 模板
+我已经通过安装了 Poetry 和 Cookiecutter，并且使用Cookiecutter创建Cookiecutter-Poetry模板项目，通过 poetry install安装了项目依赖，怎么进行下一步开发
+PS D:\zh\code\python\AutoBaby> poetry install
+Installing dependencies from lock file
+
+No dependencies to install or update
+
+Installing the current project: autobaby (0.0.1)
+PS D:\zh\code\python\AutoBaby> poetry show
+babel                      2.17.0
+backrefs                   5.7.post1
+cachetools                 5.5.2
+certifi                    2025.1.31
+cfgv                       3.4.0
+chardet                    5.2.0
+charset-normalizer         3.4.1
+click                      8.1.8
+colorama                   0.4.6
+coverage                   7.6.1
+deptry                     0.16.2
+distlib                    0.3.9
+filelock                   3.16.1
+ghp-import                 2.1.0
+griffe                     1.4.0
+identify                   2.6.1
+idna                       3.10
+iniconfig                  2.1.0
+jinja2                     3.1.6
+markdown                   3.7
+markupsafe                 2.1.5
+mergedeep                  1.3.4
+mkdocs                     1.6.1
+mkdocs-autorefs            1.2.0
+mkdocs-get-deps            0.2.0
+mkdocs-material            9.6.11
+mkdocs-material-extensions 1.3.1
+mkdocstrings               0.26.1
+nodeenv                    1.9.1
+packaging                  24.2
+paginate                   0.5.7
+pathspec                   0.12.1
+platformdirs               4.3.6
+pluggy                     1.5.0
+pre-commit                 3.5.0
+pygments                   2.19.1
+pymdown-extensions         10.14.3
+pyproject-api              1.8.0
+pyright                    1.1.399
+pytest                     7.4.4
+pytest-cov                 4.1.0
+python-dateutil            2.9.0.post0
+pyyaml                     6.0.2
+pyyaml-env-tag             0.1
+requests                   2.32.3
+six                        1.17.0
+tox                        4.25.0
+typing-extensions          4.13.2
+urllib3                    2.2.3
+virtualenv                 20.30.0
+watchdog                   4.0.2

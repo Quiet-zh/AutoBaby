@@ -10,8 +10,17 @@ packages = [
   {include = "autobaby"}
 ]
 
+[tool.poetry.scripts]
+autobaby = "autobaby.gui:create_window"
+
 [tool.poetry.dependencies]
-python = ">=3.8,<4.0"
+python = ">=3.9,<4.0"
+pyautogui = "^0.9.54"
+schedule = "^1.2.2"
+requests = "^2.32.3"
+loguru = "^0.7.3"
+pyyaml = "^6.0.2"
+pyqt6 = "^6.9.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.0"

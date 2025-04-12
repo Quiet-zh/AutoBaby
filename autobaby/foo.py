@@ -9,6 +9,8 @@ def foo(bar: str) -> str:
     Returns:
         Description of return value
     """
+    print('hello world')
+    print(bar)
 
     return bar
 
