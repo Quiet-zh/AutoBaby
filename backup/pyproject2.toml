@@ -1,0 +1,179 @@
+[tool.poetry]
+name = "autobaby"
+version = "0.0.1"
+description = "A Python automation application for Windows 10+ featuring auto-click, simulated clicks, scheduled tasks, API requests, and a native GUI, managed with Poetry."
+authors = ["ohmyrain <2013471393@qq.com>"]
+repository = "https://github.com/Quiet-zh/AutoBaby"
+documentation = "https://Quiet-zh.github.io/AutoBaby/"
+readme = "README.md"
+packages = [
+  {include = "autobaby"}
+]
+
+[[tool.poetry.source]]
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+priority = "primary"
+
+[[tool.poetry.source]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+priority = "secondary"
+
+[[tool.poetry.source]]
+name = "pypi"
+url = "https://pypi.org/simple/"
+priority = "explicit"
+
+[tool.poetry.scripts]
+autobaby = "autobaby.gui:create_window"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+blinker = "1.9.0"
+certifi = "2025.1.31"
+charset-normalizer = "3.4.1"
+click = "8.1.8"
+colorama = "0.4.6"
+comtypes = "1.4.10"
+dill = "0.3.9"
+Flask = "3.1.0"
+idna = "3.10"
+itsdangerous = "2.2.0"
+Jinja2 = "3.1.6"
+keyboard = "0.13.5"
+MarkupSafe = "3.0.2"
+MouseInfo = "0.1.3"
+numpy = "2.2.4"
+opencv-python = "4.11.0.86"
+packaging = "24.2"
+pillow = "11.1.0"
+psutil = "7.0.0"
+pyautogui = "^0.9.54"
+PyGetWindow = "0.0.9"
+PyMsgBox = "1.0.9"
+pynput = "1.8.1"
+pyqt6 = "^6.9.0"
+pyperclip = "1.9.0"
+PyRect = "0.2.0"
+PyScreeze = "1.0.1"
+PySocks = "1.7.1"
+pytweening = "1.2.0"
+pywin32 = "310"
+pywin32-ctypes = "0.2.3"
+pywinauto = "0.6.9"
+pyyaml = "^6.0.2"
+requests = "^2.32.3"
+schedule = "^1.2.2"
+tomlkit = "0.13.2"
+ttkthemes = "3.2.2"
+urllib3 = "2.3.0"
+Werkzeug = "3.1.3"
+
+[tool.poetry.group.dev.dependencies]
+deptry = "^0.16.2"
+pyright = "^1.1.382"
+pre-commit = "^3.4.0"
+tox = "^4.11.1"
+
+# 代码质量工具
+pylint = "3.3.6"
+astroid = "3.3.9"      # pylint 的依赖
+mccabe = "0.7.0"       # pylint 的依赖
+isort = "6.0.1"        # 代码格式化
+
+# 打包相关
+# 实际打包时才安装，可通过临时安装命令：
+# poetry run pip install pyinstaller altgraph pefile
+# pyinstaller = "6.12.0"
+# altgraph = "0.17.4"
+# pefile = "2023.2.7"
+# pyinstaller-hooks-contrib = "2025.2"
+
+
+# 测试
+pytest = "^7.4.4"
+pytest-mock = "^3.14.0"
+pytest-cov = "^4.1.0"
+# pytest-cov 的依赖
+platformdirs = "4.3.7"
+
+# 日志工具
+loguru = "^0.7.3"
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.4.2"
+mkdocs-material = "^9.2.7"
+mkdocstrings = {extras = ["python"], version = "^0.26.1"}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+
+[tool.pyright]
+include = ["autobaby"]
+typeCheckingMode = "strict"
+venvPath = "."
+venv = ".venv"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 120
+fix = true
+select = [
+    # flake8-2020
+    "YTT",
+    # flake8-bandit
+    "S",
+    # flake8-bugbear
+    "B",
+    # flake8-builtins
+    "A",
+    # flake8-comprehensions
+    "C4",
+    # flake8-debugger
+    "T10",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+    # mccabe
+    "C90",
+    # pycodestyle
+    "E", "W",
+    # pyflakes
+    "F",
+    # pygrep-hooks
+    "PGH",
+    # pyupgrade
+    "UP",
+    # ruff
+    "RUF",
+    # tryceratops
+    "TRY",
+]
+ignore = [
+    # LineTooLong
+    "E501",
+    # DoNotAssignLambda
+    "E731",
+]
+
+[tool.ruff.format]
+preview = true
+
+[tool.coverage.report]
+skip_empty = true
+
+[tool.coverage.run]
+branch = true
+source = ["autobaby"]
+
+
+[tool.ruff.per-file-ignores]
+"tests/*" = ["S101"]

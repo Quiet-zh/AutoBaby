@@ -1,61 +1,118 @@
 我打算使用 Poetry 和 Cookiecutter创建一个py项目，我的项目是开发一个运行在window10+的python自动化应用，包含自动点击，模拟点击，定时运行，网络api请求，win应用界面等基础功能以及后续可能拓展的其他功能
 在网上搜索发现，Cookiecutter-Poetry 是一个现代化的 Cookiecutter 模板，专为使用 Poetry 进行依赖管理的 Python 项目而设计。可能要使用Cookiecutter-Poetry 模板
 我已经通过安装了 Poetry 和 Cookiecutter，并且使用Cookiecutter创建Cookiecutter-Poetry模板项目，通过 poetry install安装了项目依赖，怎么进行下一步开发
+
+PS C:\Users\Wei\Desktop> cd D:\zh\code\python\AutoBaby\
+PS D:\zh\code\python\AutoBaby> poetry lock
+Resolving dependencies... (1.6s)
 PS D:\zh\code\python\AutoBaby> poetry install
 Installing dependencies from lock file
 
 No dependencies to install or update
 
 Installing the current project: autobaby (0.0.1)
+PS D:\zh\code\python\AutoBaby> poetry update
+Updating dependencies
+Resolving dependencies... (8.2s)
+
+No dependencies to install or update
 PS D:\zh\code\python\AutoBaby> poetry show
-babel                      2.17.0
-backrefs                   5.7.post1
-cachetools                 5.5.2
-certifi                    2025.1.31
-cfgv                       3.4.0
-chardet                    5.2.0
-charset-normalizer         3.4.1
-click                      8.1.8
-colorama                   0.4.6
-coverage                   7.6.1
-deptry                     0.16.2
-distlib                    0.3.9
-filelock                   3.16.1
-ghp-import                 2.1.0
-griffe                     1.4.0
-identify                   2.6.1
-idna                       3.10
-iniconfig                  2.1.0
-jinja2                     3.1.6
-markdown                   3.7
-markupsafe                 2.1.5
-mergedeep                  1.3.4
-mkdocs                     1.6.1
-mkdocs-autorefs            1.2.0
-mkdocs-get-deps            0.2.0
-mkdocs-material            9.6.11
-mkdocs-material-extensions 1.3.1
-mkdocstrings               0.26.1
-nodeenv                    1.9.1
-packaging                  24.2
-paginate                   0.5.7
-pathspec                   0.12.1
-platformdirs               4.3.6
-pluggy                     1.5.0
-pre-commit                 3.5.0
-pygments                   2.19.1
-pymdown-extensions         10.14.3
-pyproject-api              1.8.0
-pyright                    1.1.399
-pytest                     7.4.4
-pytest-cov                 4.1.0
-python-dateutil            2.9.0.post0
-pyyaml                     6.0.2
-pyyaml-env-tag             0.1
-requests                   2.32.3
-six                        1.17.0
-tox                        4.25.0
-typing-extensions          4.13.2
-urllib3                    2.2.3
-virtualenv                 20.30.0
-watchdog                   4.0.2
+altgraph                   0.17.4      Python graph (network) package
+astroid                    3.3.9       An abstract syntax tree for Python with inference support.
+babel                      2.17.0      Internationalization utilities
+backrefs                   5.8         A wrapper around re and regex that adds additional back references.
+blinker                    1.9.0       Fast, simple object-to-object and broadcast signaling
+cachetools                 5.5.2       Extensible memoizing collections and decorators
+certifi                    2025.1.31   Python package for providing Mozilla's CA Bundle.
+cfgv                       3.4.0       Validate configuration and produce human readable error messages.
+chardet                    5.2.0       Universal encoding detector for Python 3
+charset-normalizer         3.4.1       The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet.
+click                      8.1.8       Composable command line interface toolkit
+colorama                   0.4.6       Cross-platform colored terminal text.
+comtypes                   1.4.10      Pure Python COM package
+coverage                   7.8.0       Code coverage measurement for Python
+deptry                     0.16.2      A command line utility to check for unused, missing and transitive dependencies in a Python project.
+dill                       0.3.9       serialize all of Python
+distlib                    0.3.9       Distribution utilities
+filelock                   3.18.0      A platform independent file lock.
+flask                      3.1.0       A simple framework for building complex web applications.
+ghp-import                 2.1.0       Copy your docs directly to the gh-pages branch.
+griffe                     1.7.2       Signatures for entire Python programs. Extract the structure, the frame, the skeleton of your project, to generate API documentation or find breaking changes in your API.
+identify                   2.6.9       File identification library for Python
+idna                       3.10        Internationalized Domain Names in Applications (IDNA)
+iniconfig                  2.1.0       brain-dead simple config-ini parsing
+isort                      6.0.1       A Python utility / library to sort Python imports.
+itsdangerous               2.2.0       Safely pass data to untrusted environments and back.
+jinja2                     3.1.6       A very fast and expressive template engine.
+keyboard                   0.13.5      Hook and simulate keyboard events on Windows and Linux
+loguru                     0.7.3       Python logging made (stupidly) simple
+markdown                   3.8         Python implementation of John Gruber's Markdown.
+markupsafe                 3.0.2       Safely add untrusted strings to HTML/XML markup.
+mccabe                     0.7.0       McCabe checker, plugin for flake8
+mergedeep                  1.3.4       A deep merge function for 🐍.
+mkdocs                     1.6.1       Project documentation with Markdown.
+mkdocs-autorefs            1.4.1       Automatically link across pages in MkDocs.
+mkdocs-get-deps            0.2.0       MkDocs extension that lists all dependencies according to a mkdocs.yml file
+mkdocs-material            9.6.11      Documentation that simply works
+mkdocs-material-extensions 1.3.1       Extension pack for Python Markdown and MkDocs Material.
+mkdocstrings               0.26.2      Automatic documentation from sources, for MkDocs.
+mkdocstrings-python        1.13.0      A Python handler for mkdocstrings.
+mouseinfo                  0.1.3       An application to display XY position and RGB color information for the pixel currently under the mouse. Works on Python 2 and 3.
+nodeenv                    1.9.1       Node.js virtual environment builder
+numpy                      2.2.4       Fundamental package for array computing in Python
+opencv-python              4.11.0.86   Wrapper package for OpenCV python bindings.
+packaging                  24.2        Core utilities for Python packages
+paginate                   0.5.7       Divides large result sets into pages for easier browsing
+pastel                     0.2.1       Bring colors to your terminal.
+pathspec                   0.12.1      Utility library for gitignore style pattern matching of file paths.
+pefile                     2023.2.7    Python PE parsing module
+pillow                     11.1.0      Python Imaging Library (Fork)
+platformdirs               4.3.7       A small Python package for determining appropriate platform-specific dirs, e.g. a `user data dir`.
+pluggy                     1.5.0       plugin and hook calling mechanisms for python
+poethepoet                 0.24.4      A task runner that works well with poetry.
+pre-commit                 3.8.0       A framework for managing and maintaining multi-language pre-commit hooks.
+psutil                     7.0.0       Cross-platform lib for process and system monitoring in Python.  NOTE: the syntax of this script MUST be kept compatible with Python 2.7.
+pyautogui                  0.9.54      PyAutoGUI lets Python control the mouse and keyboard, and other GUI automation tasks. For Windows, macOS, and Linux, on Python 3 and 2.
+pygetwindow                0.0.9       A simple, cross-platform module for obtaining GUI information on application's windows.
+pygments                   2.19.1      Pygments is a syntax highlighting package written in Python.
+pyinstaller                6.12.0      PyInstaller bundles a Python application and all its dependencies into a single package.
+pyinstaller-hooks-contrib  2025.2      Community maintained hooks for PyInstaller
+pylint                     3.3.6       python code static checker
+pymdown-extensions         10.14.3     Extension pack for Python Markdown.
+pymsgbox                   1.0.9       A simple, cross-platform, pure Python module for JavaScript-like message boxes.
+pynput                     1.8.1       Monitor and control user input devices
+pyperclip                  1.9.0       A cross-platform clipboard module for Python. (Only handles plain text for now.)
+pyproject-api              1.9.0       API to interact with the python pyproject.toml based projects
+pyqt6                      6.9.0       Python bindings for the Qt cross platform application toolkit
+pyqt6-qt6                  6.9.0       The subset of a Qt installation needed by PyQt6.
+pyqt6-sip                  13.10.0     The sip module support for PyQt6
+pyrect                     0.2.0       PyRect is a simple module with a Rect class for Pygame-like rectangular areas.
+pyright                    1.1.399     Command line wrapper for pyright
+pyscreeze                  1.0.1       A simple, cross-platform screenshot module for Python 2 and 3.
+pysocks                    1.7.1       A Python SOCKS client module. See https://github.com/Anorov/PySocks for more information.
+pytest                     7.4.4       pytest: simple powerful testing with Python
+pytest-cov                 4.1.0       Pytest plugin for measuring coverage.
+pytest-mock                3.14.0      Thin-wrapper around the mock package for easier use with pytest
+python-dateutil            2.9.0.post0 Extensions to the standard Python datetime module
+pytweening                 1.2.0       A collection of tweening (aka easing) functions.
+pywin32                    310         Python for Window Extensions
+pywin32-ctypes             0.2.3       A (partial) reimplementation of pywin32 using ctypes/cffi
+pywinauto                  0.6.9       A set of Python modules to automate the Microsoft Windows GUI
+pyyaml                     6.0.2       YAML parser and emitter for Python
+pyyaml-env-tag             0.1         A custom YAML tag for referencing environment variables in YAML files.
+requests                   2.32.3      Python HTTP for Humans.
+ruff                       0.3.7       An extremely fast Python linter and code formatter, written in Rust.
+schedule                   1.2.2       Job scheduling for humans.
+setuptools                 78.1.0      Easily download, build, install, upgrade, and uninstall Python packages
+six                        1.17.0      Python 2 and 3 compatibility utilities
+tomli                      2.2.1       A lil' TOML parser
+tomlkit                    0.13.2      Style preserving TOML library
+tox                        4.25.0      tox is a generic virtualenv management and test command line tool
+ttkthemes                  3.2.2       A group of themes for the ttk extensions of Tkinter with a Tkinter.Tk wrapper
+typing-extensions          4.13.2      Backported and Experimental Type Hints for Python 3.8+
+urllib3                    2.3.0       HTTP library with thread-safe connection pooling, file post, and more.
+virtualenv                 20.30.0     Virtual Python Environment builder
+watchdog                   6.0.0       Filesystem events monitoring
+werkzeug                   3.1.3       The comprehensive WSGI web application library.
+win32-setctime             1.2.0       A small Python utility to set file creation time on Windows
+PS D:\zh\code\python\AutoBaby>

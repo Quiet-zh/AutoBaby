@@ -1,108 +1,247 @@
+# ========================
+# 项目元数据配置
+# ========================
 [tool.poetry]
-name = "autobaby"
-version = "0.0.1"
-description = "A Python automation application for Windows 10+ featuring auto-click, simulated clicks, scheduled tasks, API requests, and a native GUI, managed with Poetry."
-authors = ["ohmyrain <2013471393@qq.com>"]
-repository = "https://github.com/Quiet-zh/AutoBaby"
-documentation = "https://Quiet-zh.github.io/AutoBaby/"
-readme = "README.md"
-packages = [
-  {include = "autobaby"}
+name = "autobaby"                             # 项目名称（包名）
+version = "0.0.1"                             # 当前版本号（遵循语义化版本）
+description = "A Python automation application for Windows 10+ featuring auto-click, simulated clicks, scheduled tasks, API requests, and a native GUI, managed with Poetry."      # 项目简短描述（显示在PyPI）
+authors = ["ohmyrain <2013471393@qq.com>"]    # 维护者信息
+repository = "https://github.com/Quiet-zh/AutoBaby"        # 代码仓库地址
+documentation = "https://Quiet-zh.github.io/AutoBaby/"     # 文档站点地址
+readme = "README.md"                          # 主说明文件路径
+packages = [                                  # 包含的代码包配置
+  {include = "autobaby"}                      # 包含 autobaby 目录作为包
 ]
 
+# ========================
+# 包源镜像配置（加速国内下载）
+# ========================
+[[tool.poetry.source]]                        # 主镜像源（数组格式）
+name = "aliyun"                               # 镜像名称标识（阿里云镜像）
+url = "https://mirrors.aliyun.com/pypi/simple/"
+priority = "primary"                          # 优先级：primary > supplemental > explicit
+
+[[tool.poetry.source]]                        # 备用镜像源（清华镜像）
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+priority = "supplemental"                        # 当主源不可用时使用
+
+[[tool.poetry.source]]                        # 官方源（显式调用）
+name = "pypi"
+# url = "https://pypi.org/simple/"
+priority = "explicit"                         # 需要显式指定时使用
+
+# ========================
+# CLI入口配置
+# ========================
 [tool.poetry.scripts]
-autobaby = "autobaby.gui:create_window"
+autobaby = "autobaby.gui:create_window"       # 命令行命令映射到GUI创建函数
 
+# ========================
+# 主依赖配置（运行时必需）
+# ========================
 [tool.poetry.dependencies]
-python = ">=3.9,<4.0"
-pyautogui = "^0.9.54"
-schedule = "^1.2.2"
-requests = "^2.32.3"
-loguru = "^0.7.3"
-pyyaml = "^6.0.2"
-pyqt6 = "^6.9.0"
+python = ">=3.10,<4.0"                        # Python版本约束（需≥3.10）
 
+# ------------------------
+# 基础工具库
+# ------------------------
+blinker = "1.9.0"                             # 信号事件系统
+certifi = "2025.1.31"                         # SSL证书验证
+charset-normalizer = "3.4.1"                  # 字符编码检测
+click = "8.1.8"                               # CLI命令构建
+colorama = "0.4.6"                            # 跨平台彩色终端输出
+comtypes = "1.4.10"                           # Windows COM组件支持
+dill = "0.3.9"                                # 增强版序列化库
+
+# ------------------------
+# Web服务相关
+# ------------------------
+Flask = "3.1.0"                               # Web框架核心库
+idna = "3.10"                                 # IDNA域名处理
+itsdangerous = "2.2.0"                        # 安全签名模块
+Jinja2 = "3.1.6"                              # 模板引擎
+MarkupSafe = "3.0.2"                          # HTML/XML安全字符串处理
+Werkzeug = "3.1.3"                            # WSGI工具集
+
+# ------------------------
+# 自动化核心
+# ------------------------
+keyboard = "0.13.5"                           # 全局键盘监听控制
+MouseInfo = "0.1.3"                           # 鼠标位置信息获取
+pynput = "1.8.1"                              # 键盘/鼠标监听控制
+pyautogui = { version = "^0.9.54", markers = "sys_platform != 'linux'" }  # 屏幕自动化控制（排除Linux平台）
+
+# ------------------------
+# 图像处理
+# ------------------------
+numpy = "2.2.4"                               # 数值计算核心库
+opencv-python = "4.11.0.86"                   # OpenCV Python绑定
+pillow = "11.1.0"                             # 图像处理库
+
+# ------------------------
+# 系统交互
+# ------------------------
+packaging = "24.2"                            # 版本解析工具
+psutil = "7.0.0"                              # 系统进程监控
+pywin32 = "310"                               # Windows API接口
+pywin32-ctypes = "0.2.3"                      # pywin32兼容层
+pywinauto = "0.6.9"                           # Windows GUI自动化
+
+# ------------------------
+# GUI相关
+# ------------------------
+pyqt6 = "^6.9.0"                              # Qt6 GUI框架
+PyGetWindow = "0.0.9"                         # 窗口管理工具
+PyMsgBox = "1.0.9"                            # 消息弹窗组件
+pyperclip = "1.9.0"                           # 剪贴板操作
+PyRect = "0.2.0"                              # 屏幕区域坐标处理
+PyScreeze = "1.0.1"                           # 屏幕截图工具
+PySocks = "1.7.1"                             # SOCKS代理支持
+pytweening = "1.2.0"                          # 动画缓动函数
+ttkthemes = "3.2.2"                           # Tkinter主题库
+
+# ------------------------
+# 其他工具
+# ------------------------
+pyyaml = "^6.0.2"                             # YAML文件解析
+requests = "^2.32.3"                          # HTTP客户端库
+schedule = "^1.2.2"                           # 定时任务管理
+tomlkit = "0.13.2"                            # TOML文件操作
+urllib3 = "2.3.0"                             # URL处理工具
+
+# ========================
+# 开发依赖组（非必需）
+# ========================
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.2.0"
-pytest-cov = "^4.0.0"
-deptry = "^0.16.2"
-pyright = "^1.1.382"
-pre-commit = "^3.4.0"
-tox = "^4.11.1"
+# ------------------------
+# 依赖管理
+# ------------------------
+deptry = "^0.16.2"                            # 依赖树验证工具
+pre-commit = "^3.4.0"                         # Git钩子管理
+tox = "^4.11.1"                               # 多环境测试工具
 
+# ------------------------
+# 代码质量
+# ------------------------
+pylint = "3.3.6"                              # Python静态代码分析
+astroid = "3.3.9"                             # pylint的依赖（语法树解析）
+mccabe = "0.7.0"                              # pylint的依赖（圈复杂度检查）
+isort = "6.0.1"                               # 导入语句格式化
+ruff = "0.3.7"                                # 高性能代码Linter
+
+# ------------------------
+# 测试工具
+# ------------------------
+pytest = "^7.4.4"                             # 测试框架核心库
+pytest-mock = "^3.14.0"                       # Mock测试支持
+pytest-cov = "^4.1.0"                         # 测试覆盖率工具
+platformdirs = "4.3.7"                        # 跨平台路径管理（pytest-cov依赖）
+
+# ------------------------
+# 类型检查
+# ------------------------
+pyright = "^1.1.382"                          # 静态类型检查器
+
+# ------------------------
+# 日志工具
+# ------------------------
+loguru = "^0.7.3"                             # 结构化日志记录
+
+# ========================
+# 文档依赖组
+# ========================
 [tool.poetry.group.docs.dependencies]
-mkdocs = "^1.4.2"
-mkdocs-material = "^9.2.7"
-mkdocstrings = {extras = ["python"], version = "^0.26.1"}
+mkdocs = "^1.4.2"                             # 文档生成框架
+mkdocs-material = "^9.2.7"                    # Material风格主题
+mkdocstrings = {extras = ["python"], version = "^0.26.1"}  # 自动API文档生成
 
+# ------------------------
+# 构建工具（按需安装），打包专用依赖组
+# ------------------------
+[tool.poetry.group.packaging.dependencies]
+poethepoet = "^0.24.4"                        # 任务运行器（替代Makefile）
+# 添加 Python 版本约束                        # 可执行文件打包工具
+pyinstaller = { version = "6.12.0", python = ">=3.10,<3.14" }
+# pyinstaller依赖（图表生成）
+altgraph = { version = "0.17.4", python = ">=3.10,<3.14" }
+# PE文件分析工具
+pefile = { version = "2023.2.7", python = ">=3.10,<3.14" }
+pyinstaller-hooks-contrib = "2025.2"          # 额外打包钩子
+# 如需实际打包时才安装，可通过临时安装命令：
+# poetry run pip install pyinstaller altgraph pefile poethepoet
+
+# ========================
+# 构建系统配置
+# ========================
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]             # 构建工具链要求
+build-backend = "poetry.core.masonry.api"     # 构建后端实现
 
+# ========================
+# 开发工具配置
+# ========================
+[tool.pyright]                                    # VS Code类型检查配置
+include = ["autobaby"]                            # 检查范围
+typeCheckingMode = "strict"                       # 严格类型检查模式
+venvPath = "."                                    # 虚拟环境路径
+venv = ".venv"                                    # 虚拟环境目录
 
+[tool.pytest.ini_options]                         # Pytest配置
+testpaths = ["tests"]                             # 测试目录路径
+addopts = "--verbose --color=yes"                 # 默认运行参数（详细输出+彩色显示）
+filterwarnings = ["ignore::DeprecationWarning"]   # 过滤弃用警告
 
-[tool.pyright]
-include = ["autobaby"]
-typeCheckingMode = "strict"
-venvPath = "."
-venv = ".venv"
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-
-[tool.ruff]
-target-version = "py39"
-line-length = 120
-fix = true
-select = [
-    # flake8-2020
-    "YTT",
-    # flake8-bandit
-    "S",
-    # flake8-bugbear
-    "B",
-    # flake8-builtins
-    "A",
-    # flake8-comprehensions
-    "C4",
-    # flake8-debugger
-    "T10",
-    # flake8-simplify
-    "SIM",
-    # isort
-    "I",
-    # mccabe
-    "C90",
-    # pycodestyle
-    "E", "W",
-    # pyflakes
-    "F",
-    # pygrep-hooks
-    "PGH",
-    # pyupgrade
-    "UP",
-    # ruff
-    "RUF",
-    # tryceratops
-    "TRY",
+# ========================
+# 代码质量检查配置
+# ========================
+[tool.ruff]                                   # Ruff Linter配置
+target-version = "py310"                      # 目标Python版本
+line-length = 120                             # 最大行长度
+fix = true                                    # 自动修复违规代码
+select = [                                    # 启用的检查规则
+    "YTT",    # flake8-2020
+    "S",      # flake8-bandit（安全相关）
+    "B",      # flake8-bugbear（潜在错误）
+    "A",      # flake8-builtins（内置函数覆盖）
+    "C4",     # flake8-comprehensions（推导式优化）
+    "T10",    # flake8-debugger（调试语句）
+    "SIM",    # flake8-simplify（简化建议）
+    "I",      # isort（导入排序）
+    "C90",    # mccabe（圈复杂度）
+    "E", "W", # pycodestyle
+    "F",      # pyflakes
+    "PGH",    # pygrep-hooks
+    "UP",     # pyupgrade（现代化语法）
+    "RUF",    # Ruff专属规则
+    "TRY"     # tryceratops（异常处理优化）
 ]
-ignore = [
-    # LineTooLong
-    "E501",
-    # DoNotAssignLambda
-    "E731",
+ignore = [                                    # 忽略的规则
+    "E501",   # 行过长限制
+    "E731"    # 禁止lambda赋值
 ]
+per-file-ignores = {"tests/*" = ["S101"]}     # 测试文件特殊规则（断言方法使用）
 
-[tool.ruff.format]
-preview = true
+[tool.ruff.format]                            # 格式化配置
+preview = true                                # 启用预览样式规则
 
-[tool.coverage.report]
-skip_empty = true
+# ========================
+# 测试覆盖率配置
+# ========================
+[tool.coverage.run]                           # 覆盖率收集配置
+branch = true                                 # 检查分支覆盖率
+source = ["autobaby"]                         # 检测包范围
+omit = ["tests/*"]                            # 排除测试文件
 
-[tool.coverage.run]
-branch = true
-source = ["autobaby"]
+[tool.coverage.report]                        # 报告生成配置
+skip_empty = true                             # 跳过空覆盖率报告
 
-
-[tool.ruff.per-file-ignores]
-"tests/*" = ["S101"]
+# ========================
+# 任务运行器配置
+# ========================
+[tool.poe.tasks]
+build = "pyinstaller autobaby.spec --noconfirm"   # 构建可执行文件
+test = "pytest tests/ -v"                         # 运行测试套件
+lint = "ruff check . --fix"                       # 代码质量检查
+clean = "rmdir /s/q build dist"                   # 清理构建产物（Windows）
+release = ["clean", "test", "build"]              # 完整发布流程
